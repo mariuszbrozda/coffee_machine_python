@@ -73,10 +73,12 @@ cappuccino_price = MENU['cappuccino']['cost']
 
 
 def coints():
-    quarters = float(input('How many quarters? ')) * 0.25
-    dimer = float(input('How many dimes? ')) * 0.10
-    nickles = float(input('How many nickles? ')) * 0.05
-    pennies = float(input('How many pennies? ')) * 0.01
+    """Returns value of coints inserted"""
+    print('Please insert coints ')
+    quarters = int(input('How many quarters? ')) * 0.25
+    dimer = int(input('How many dimes? ')) * 0.10
+    nickles = int(input('How many nickles? ')) * 0.05
+    pennies = int(input('How many pennies? ')) * 0.01
     return float(quarters + dimer + nickles + pennies)
 
 def make_espresso(water, coffee, money_inserted):
@@ -112,24 +114,16 @@ def make_cappuccino(water, coffee, milk,):
     print(coffe_cup)
     print('Thank you your CAPPUCINO is ready! Have a nice day!')
 
-def check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money):
-    if money_inserted < espresso_price:
-        print("​Sorry that's not enough money. Money refunded.​")
-        coffe_machine_on = False
+def check_transaction(money_inserted, drink_cost):
+    if money_inserted >= drink_cost:
+        change = round(money_inserted - drink_cost, 2)
+        print(f"Here is ${change} in change.")
+        global money
+        money += drink_cost
+        return True
     else:
-        money += MENU["espresso"]['cost']
-
-    if money_inserted < latte_price:
-        print("​Sorry that's not enough money. Money refunded.​")
-        coffe_machine_on = False
-    else:
-        money += MENU["latte"]['cost']
-
-    if money_inserted < cappuccino_price:
-        print("​Sorry that's not enough money. Money refunded.​")
-        coffe_machine_on = False
-    else:
-        money += MENU["cappuccino"]['cost']
+        print("Sorry that's not enough money. Money refunded.")
+        return False
 
 def Coffee_machine(coffe_type, money, resources, water, coffee, milk):
     # money = float(0)
