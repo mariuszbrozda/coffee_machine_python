@@ -79,6 +79,7 @@ def coins():
 
 
 def check_transaction(money_inserted, drink_cost):
+    """Function to check if transaction is successful and user inserted enough money to make coffee"""
     if money_inserted >= drink_cost:
         change = round(money_inserted - drink_cost, 2)
         print(f"Here is ${change} in change.")
