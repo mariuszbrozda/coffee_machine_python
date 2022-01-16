@@ -130,3 +130,82 @@ def check_transaction(money_inserted, espresso_price, latte_price, cappuccino_pr
         coffe_machine_on = False
     else:
         money += MENU["cappuccino"]['cost']
+
+def Coffee_machine(coffe_type, money, resources, water, coffee, milk):
+    # money = float(0)
+    if coffe_type == 'espresso':
+        # price 1.50$
+        # 50 ml Water
+        # 18g coffee
+        price = 1.50
+# TODO 3 Check resources sufficient?
+        if water >= 50:
+            print('enough respirces to make an coffee')
+            check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money)
+            make_espresso(water, coffee)
+        else:
+            print(f'Sorry there is not sufficient resources. Please refill water ')
+
+        if coffee >= 18:
+            print('enough respirces to make an coffee')
+            check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money)
+            make_espresso(water, coffee,)
+        else:
+            print(f'Sorry there is not sufficient resources. Please refill coffee ')
+    elif coffe_type == 'latte':
+        # price 2.50$
+        # 200ml water
+        # 24g coffee
+        # 150ml milk
+        if water > 200:
+            check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money)
+            make_latte(water, coffee, milk)
+        else:
+            print('Sorry there is not sufficient resources. Please refill water')
+
+        if coffee > 24:
+            check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money)
+            make_latte(water, coffee, milk)
+        else:
+            print('Sorry there is not sufficient resources. Please refill Coffee')
+
+        if milk > 150:
+            check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money)
+            make_latte(water, coffee, milk)
+        else:
+            print('Sorry there is not sufficient resources. Please refill milk')
+    elif coffe_type == 'cappuccino':
+        # price 3$
+        # 250ml water
+        # 24g coffee
+        # 100ml milk
+        if water >= 250:
+            make_cappuccino(water, coffee, milk)
+        else:
+            print('Sorry there is not sufficient resources. Please refill water')
+
+        if coffee >= 24:
+            make_cappuccino(water, coffee, milk)
+        else:
+            print('Sorry there is not sufficient resources. Please refill coffee')
+
+        if milk >= 100:
+            make_cappuccino(water, coffee, milk)
+        else:
+            print('Sorry there is not sufficient resources. Please refill coffee')
+
+# TODO 2 Turn off the Coffee Machine by entering “​off”​to the prompt.
+    elif coffe_type == 'off':
+        coffe_machine_on = False
+        print('Machine is OFF - Maintenance MODE')
+# TODO 3 Print report.
+    elif coffe_type == 'report':
+        print('RESOURCES: ')
+        print(f'WATER: {water}ml')
+        print(f'MILK: {milk}ml')
+        print(f'COFFEE: {coffee}g')
+        print(f'MONEY: ${money}')
+    else:
+        print('Please select coffee type')
+
+Coffee_machine(coffe_type, money, resources, water, coffee, milk)
