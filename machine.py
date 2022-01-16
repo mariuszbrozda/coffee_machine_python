@@ -112,3 +112,21 @@ def make_cappuccino(water, coffee, milk,):
     print(coffe_cup)
     print('Thank you your CAPPUCINO is ready! Have a nice day!')
 
+def check_transaction(money_inserted, espresso_price, latte_price, cappuccino_price, money):
+    if money_inserted < espresso_price:
+        print("​Sorry that's not enough money. Money refunded.​")
+        coffe_machine_on = False
+    else:
+        money += MENU["espresso"]['cost']
+
+    if money_inserted < latte_price:
+        print("​Sorry that's not enough money. Money refunded.​")
+        coffe_machine_on = False
+    else:
+        money += MENU["latte"]['cost']
+
+    if money_inserted < cappuccino_price:
+        print("​Sorry that's not enough money. Money refunded.​")
+        coffe_machine_on = False
+    else:
+        money += MENU["cappuccino"]['cost']
