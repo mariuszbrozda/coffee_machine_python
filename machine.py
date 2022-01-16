@@ -59,3 +59,56 @@ coffee = resources['coffee']
 milk = resources['milk']
 
 coffe_machine_on = True
+
+while coffe_machine_on True:
+    coffe_type = input('​What would you like? (espresso/latte/cappuccino)').lower()
+
+
+
+
+money = float(0)
+espresso_price = MENU['espresso']['cost']
+latte_price = MENU['latte']['cost']
+cappuccino_price = MENU['cappuccino']['cost']
+
+
+def coints():
+    quarters = float(input('How many quarters? ')) * 0.25
+    dimer = float(input('How many dimes? ')) * 0.10
+    nickles = float(input('How many nickles? ')) * 0.05
+    pennies = float(input('How many pennies? ')) * 0.01
+    return float(quarters + dimer + nickles + pennies)
+
+def make_espresso(water, coffee, money_inserted):
+    money_inserted = coints()
+
+    water -= 50
+    coffee -= 18
+    print(f'money collected {money_inserted}')
+    money_inserted -= MENU["espresso"]['cost']
+    print(f'Here is your change: {money_inserted}')
+    print(coffe_cup)
+    print('Thank you, your EXPRESSO is ready! Have a nice day!')
+
+def make_latte(water, coffee, milk,):
+    money_inserted = coints()
+    print(f'money inserted ${money_inserted}')
+    water -= 200
+    coffee -= 24
+    milk -= 150
+    money_inserted -= MENU["latte"]['cost']
+    print(f'Here is your change: {money_inserted}')
+    print(coffe_cup)
+    print('Thank you, your LATTE is ready! Have a nice day!')
+
+def make_cappuccino(water, coffee, milk,):
+    money_inserted = coints()
+    water -= 250
+    coffee -= 24
+    milk -= 100
+    money_inserted -= MENU["cappuccino"]['cost']
+    print(f'money inserted ${money_inserted}')
+    print(f'Here is your change: {money_inserted}')
+    print(coffe_cup)
+    print('Thank you your CAPPUCINO is ready! Have a nice day!')
+
